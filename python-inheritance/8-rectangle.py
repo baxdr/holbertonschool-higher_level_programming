@@ -2,6 +2,7 @@
 """
 Module to check if an object is exactly an instance of a specified class
 """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
