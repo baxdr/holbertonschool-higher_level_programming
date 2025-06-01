@@ -1,74 +1,63 @@
 #!/usr/bin/python3
-"""
-This module demonstrates the use of duck typing in Python.
-"""
+"""Module containing Shape class and its inheritances"""
 from abc import ABC, abstractmethod
-import math
+from math import pi
 
 
 class Shape(ABC):
-    """
-    Abstract base class for shapes
-    """
+    """The Shape class"""
 
     @abstractmethod
     def area(self):
+        """Method for area"""
         pass
 
     @abstractmethod
     def perimeter(self):
+        """Method for perimeter"""
         pass
 
 
 class Circle(Shape):
-    """
-    Concrete class for Circle that implements the Shape interface
-    """
+    """The Circle class inherited from Shape"""
 
     def __init__(self, radius):
-        self.radius = radius
+        """Initialization wih radius"""
+        self.radius = abs(radius)
 
     def area(self):
-        return math.pi * self.radius ** 2
+        """Returning duck area"""
+        return pi * self.radius ** 2
 
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        """Returning perimeter area"""
+        return pi * self.radius * 2
 
 
 class Rectangle(Shape):
-    """
-    Concrete class for Rectangle that implements the Shape interface
-    """
+    """The Rectangle class inherited from Shape"""
 
     def __init__(self, width, height):
+        """Initialization wih width and height"""
         self.width = width
         self.height = height
 
     def area(self):
+        """Returning duck area"""
         return self.width * self.height
 
     def perimeter(self):
+        """Returning perimeter area"""
         return 2 * (self.width + self.height)
 
 
 def shape_info(obj):
-    """
-    Function to print area and perimeter of a shape
-    """
+    """Function to give shape info"""
+
+    # Calculating the area and perimeter
     area = obj.area()
     perimeter = obj.perimeter()
 
     # Printing the area and perimeter
     print(f"Area: {area}")
     print(f"Perimeter: {perimeter}")
-
-
-if __name__ == "__main__":
-    circle = Circle(5)
-    rectangle = Rectangle(4, 7)
-
-    print("Circle:")
-    shape_info(circle)  # Should print the area and perimeter of the circle
-
-    print("\nRectangle:")
-    shape_info(rectangle)  # Should print the area and perimeter of the rectangle
