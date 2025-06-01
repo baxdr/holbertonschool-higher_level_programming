@@ -3,7 +3,7 @@
 This module demonstrates the use of duck typing in Python.
 """
 from abc import ABC, abstractmethod
-
+import math
 
 class Shape(ABC):
     """
@@ -34,10 +34,12 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        return 3.14 * self.radius ** 2
+        pi = math.pi
+        return pi * (self.radius ** 2)
 
     def perimeter(self):
-        return 2 * 3.14 * self.radius
+        pi = math.pi
+        return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
