@@ -5,16 +5,11 @@ This module demonstrates the use of duck typing in Python.
 from abc import ABC, abstractmethod
 import math
 
+
 class Shape(ABC):
     """
     Abstract base class for shapes
     """
-
-    def __init__(self):
-        """
-        Initialize the shape.
-        """
-        pass
 
     @abstractmethod
     def area(self):
@@ -35,7 +30,7 @@ class Circle(Shape):
 
     def area(self):
         pi = math.pi
-        return pi * (self.radius ** 2)
+        return pi * self.radius ** 2
 
     def perimeter(self):
         pi = math.pi
