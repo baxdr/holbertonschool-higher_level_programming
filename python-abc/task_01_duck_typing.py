@@ -13,12 +13,9 @@ class Shape(ABC):
     def area(self):
         pass
 
+    @abstractmethod
     def perimeter(self):
-        """
-        Default implementation for perimeter, can be overridden
-        """
-        raise NotImplementedError(
-            "This shape does not have a defined perimeter method")
+        pass
 
 
 class Circle(Shape):
@@ -50,3 +47,11 @@ class Rectangle(Shape):
 
     def perimeter(self):
         return 2 * (self.width + self.height)
+
+
+def Shape_info(shape):
+    """
+    Function to print area and perimeter of a shape
+    """
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
