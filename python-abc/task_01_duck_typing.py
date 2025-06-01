@@ -9,6 +9,13 @@ class Shape(ABC):
     """
     Abstract base class for shapes
     """
+
+    def __init__(self):
+        """
+        Initialize the shape.
+        """
+        pass
+
     @abstractmethod
     def area(self):
         pass
@@ -49,7 +56,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-def Shape_info(shape):
+def shape_info(shape):
     """
     Function to print area and perimeter of a shape
     """
