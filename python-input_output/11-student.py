@@ -1,15 +1,33 @@
 #!/usr/bin/python3
-""" pascal triangle"""
+"""Defines Student class with serialization and deserialization methods."""
 
 
-def pascal_triangle(n=4500):
-    """print pascal"""
-    pascal = [[0]*i for i in range(1, n+1)]
-    for i in range(n):
-        pascal[i][0] = 1
-        pascal[i][-1] = 1
-        for j in range(0, i//2):
-            pascal[i][j+1] = pascal[i-1][j] + pascal[i-1][j+1]
-            pascal[i][i-j-1] = pascal[i-1][j] + pascal[i-1][j+1]
+class Student:
+    """Student that can be serialized to
+      JSON-compatible dict and reloaded from one."""
 
-    return pascal
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self, attrs=None):
+        """
+        Retrieve a dictionary representation of the Student instance.
+
+        If attrs is a list of strings, only
+          include those attributes present in both
+        the instance and the list. Otherwise, return all public attributes.
+        """
+        if isinstance(attrs, list) and all(isinstance(a, str) for a in attrs):
+            return {a: getattr(self, a) for a in attrs if hasattr(self, a)}
+        return self.__dict__.copy()
+
+    def reload_from_json(self, json):
+        """
+        Replace all attributes of the Student instance based on json dict.
+
+        json keys are attribute names and values are the new attribute values.
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
