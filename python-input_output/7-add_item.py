@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/
+"""Defines a script that adds all arguments to a Python list,"""
 from sys import argv
 """access commandline arguments"""
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
