@@ -1,4 +1,4 @@
-#!/usr/bin/
+#!/usr/bin/python3
 """Defines a script that adds all arguments to a Python list,"""
 from sys import argv
 """access commandline arguments"""
