@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """
-0-select_states.py
 A script that lists all states from the database hbtn_0e_0_usa.
 """
-import sys
+from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
-    dp = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
+    dp = MySQLdb.connect(host="localhost",
                          port=3306,
-                         host="localhost"
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3]
+
                          )
     cur = dp.cursor()
     row = cur.execute("SELECT * FROM states ORDER BY states.id;")
