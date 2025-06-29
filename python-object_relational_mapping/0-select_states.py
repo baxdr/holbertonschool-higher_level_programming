@@ -14,8 +14,7 @@ if __name__ == "__main__":
                          host="localhost"
                          )
     cur = dp.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id;")
-    states = cur.fetchall()
+    row = cur.execute("SELECT * FROM states ORDER BY states.id;")
 
-    for state in states:
-        print(state)
+    for r in range(row):
+        print(cur.fetchone())
