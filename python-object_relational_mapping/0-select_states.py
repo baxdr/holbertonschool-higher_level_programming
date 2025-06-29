@@ -14,7 +14,10 @@ if __name__ == "__main__":
 
                          )
     cur = dp.cursor()
-    row = cur.execute("SELECT * FROM states ORDER BY states.id;")
+    row = cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
     for r in range(row):
         print(cur.fetchone())
+
+    cur.close()
+    dp.close()
