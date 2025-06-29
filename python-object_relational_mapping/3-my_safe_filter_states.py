@@ -20,15 +20,12 @@ if __name__ == "__main__":
         db=database
     )
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-    cur.execute(query.format(state_name))
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"    cur.execute(query.format(state_name))
+    cur.execute(query, (state_name,))
     rows = cur.fetchall()
 
     for row in rows:
-        if row[1] == state_name:
-            print(row)
-    else:
-        print("No result found")
+        print(row)
 
     cur.close()
     db.close()
