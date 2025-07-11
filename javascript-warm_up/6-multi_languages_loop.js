@@ -1,6 +1,9 @@
 #!/usr/bin/node
-const lines = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-
-for (let i = 0; i < lines.length; i++) {
-  console.log(lines[i]);
+const x = Math.floor(Number(process.argv[2]));
+if (isNaN(x)) {
+  console.log('Missing number of occurrences');
+} else {
+  for (let i = 0; i < x; i++) {
+    console.log('C is fun');
+  }
 }

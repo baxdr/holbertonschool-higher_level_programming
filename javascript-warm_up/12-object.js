@@ -4,9 +4,5 @@ const myObject = {
   value: 12
 };
 console.log(myObject);
-
-/* ===== YOUR CODE HERE ===== */
-myObject.value = 89;   // استبدل 12 بـ 89
-/* ========================== */
-
+myObject.value = 89;
 console.log(myObject);
