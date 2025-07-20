@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+<h1>Products (source={{ source }})</h1>
+
+{% if error %}
+  <p><strong>{{ error }}</strong></p>
+{% else %}
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in products %}
+        <tr>
+          <td>{{ p.id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.category }}</td>
+          <td>{{ "%.2f"|format(p.price) }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+
+{% include 'footer.html' %}
